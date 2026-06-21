@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebWorkShop — Portfolio | Ogawa Yoshio</title>
+<meta name="description" content="デザインから開発、運用まで一貫して伴走するWebクリエイター Ogawa Yoshio のポートフォリオ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOADING OVERLAY -->
+  <div id="loader" class="loader">
+    <span class="loader__logo"><svg width="92" height="92" viewBox="0 0 540 540" fill="none">
+      <circle cx="270" cy="270" r="262" fill="none" stroke="#44ccff" stroke-width="10"></circle>
+      <path d="M150 200 L195 320 L240 215 L285 320 L330 200" fill="none" stroke="#44ccff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M150 330 L195 450 L240 345 L285 450 L330 330" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"></path>
+    </svg></span>
+    <div class="loader__label"><span class="loader__dot"></span>WebWorkShop</div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#home" class="nav__brand"><span class="nav__brand-dot"></span>WebWorkShop</a>
+    <div class="nav__links">
+      <a href="#about" class="nav__link">ABOUT</a>
+      <a href="#services" class="nav__link">SERVICES</a>
+      <a href="#products" class="nav__link">PRODUCTS</a>
+      <a href="#works" class="nav__link">WORKS</a>
+      <a href="#skills" class="nav__link">SKILLS</a>
+      <a href="#contact" class="nav__link nav__link--cta">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <canvas id="hero-canvas" class="hero__canvas"></canvas>
+    <div class="hero__overlay">
+      <div class="hero__inner">
+        <div class="hero__eyebrow"><span class="hero__rule"></span>WEBCREATOR&nbsp;&nbsp;/&nbsp;&nbsp;DESIGN → DEVELOP → OPERATE</div>
+        <h1 class="hero__title">アイデアの実現に、<br><em>伴走</em>します。</h1>
+        <p class="hero__lead">
+          デザインから開発、運用まで——担当は、私ひとり。<br>
+          だから話が早く、引き継ぎのロスもなく、最後まで一貫して。<br>「この部分だけ」の単体のご依頼も歓迎です。
+        </p>
+        <div class="hero__cta-row">
+          <a href="#products" class="btn btn--dark">プロダクトを見る <span class="hero__cta-arrow">→</span></a>
+          <a href="#contact" class="btn btn--ghost">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span class="hero__scroll-label">SCROLL</span>
+      <div class="hero__scroll-track"><span class="hero__scroll-dot"></span></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="wrap wrap--about">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow">01 / ABOUT</div>
+        <h2 class="about-title">あなた専属で、<br>実現まで走る。</h2>
+        <div class="about-id">
+          <div class="about-avatar" data-anim="roll">
+            <svg width="108" height="108" viewBox="0 0 540 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_30_8)">
+            <circle cx="270" cy="270" r="270" fill="#E3F6FD"></circle>
+            <path d="M172.184 190.48L147.8 122.8H153.368L174.488 182.608L194.168 122.608H198.008L217.688 182.608L238.808 122.8H243.992L219.608 190.48H215.576L195.896 132.112L176.216 190.48H172.184ZM272.037 191.152C259.173 191.152 248.037 180.88 248.037 165.616V165.424C248.037 151.216 258.021 139.888 271.269 139.888C284.997 139.888 293.733 151.024 293.733 165.52C293.733 166.384 293.733 166.672 293.637 167.44H253.029C253.893 179.632 262.629 186.736 272.229 186.736C279.813 186.736 284.997 183.376 289.029 179.056L292.293 181.936C287.301 187.312 281.445 191.152 272.037 191.152ZM253.029 163.216H288.645C287.973 153.328 282.309 144.208 271.077 144.208C261.381 144.208 253.893 152.368 253.029 163.216ZM332.323 191.152C322.531 191.152 316.195 185.584 312.163 179.44V190H307.459V119.92H312.163V151.984C316.387 145.552 322.627 139.888 332.323 139.888C344.131 139.888 356.131 149.392 356.131 165.328V165.52C356.131 181.456 344.131 191.152 332.323 191.152ZM331.843 186.64C342.499 186.64 351.043 178.864 351.043 165.712V165.52C351.043 152.656 342.115 144.4 331.843 144.4C321.667 144.4 311.875 152.944 311.875 165.424V165.616C311.875 178.192 321.667 186.64 331.843 186.64ZM172.184 305.48L147.8 237.8H153.368L174.488 297.608L194.168 237.608H198.008L217.688 297.608L238.808 237.8H243.992L219.608 305.48H215.576L195.896 247.112L176.216 305.48H172.184ZM273.093 306.152C258.597 306.152 248.037 294.44 248.037 280.712V280.52C248.037 266.792 258.693 254.888 273.285 254.888C287.781 254.888 298.341 266.6 298.341 280.328V280.52C298.341 294.248 287.685 306.152 273.093 306.152ZM273.285 301.736C284.901 301.736 293.253 292.232 293.253 280.712V280.52C293.253 268.712 284.421 259.304 273.093 259.304C261.477 259.304 253.125 268.808 253.125 280.328V280.52C253.125 292.328 261.957 301.736 273.285 301.736ZM312.803 305V256.04H317.507V269.96C321.347 261.224 329.507 254.888 339.203 255.272V260.456H338.723C327.395 260.456 317.507 269 317.507 284.936V305H312.803ZM351.241 305V234.92H355.945V287.432L386.281 256.04H392.521L371.113 277.736L393.193 305H387.241L367.849 281.096L355.945 293.096V305H351.241ZM175.736 420.96C164.984 420.96 156.728 417.408 148.664 410.208L151.928 406.464C159.32 413.28 166.136 416.448 176.024 416.448C186.104 416.448 193.016 410.784 193.016 403.104V402.912C193.016 395.808 189.272 391.68 174.008 388.608C157.88 385.344 151.352 379.872 151.352 369.696V369.504C151.352 359.52 160.472 351.84 172.952 351.84C182.744 351.84 189.176 354.528 195.992 360L192.824 363.936C186.488 358.464 180.152 356.352 172.76 356.352C162.872 356.352 156.344 362.016 156.344 369.024V369.216C156.344 376.32 159.992 380.64 175.928 383.904C191.48 387.072 198.008 392.64 198.008 402.432V402.624C198.008 413.472 188.696 420.96 175.736 420.96ZM213.334 420V349.92H218.038V380.16C221.302 374.4 226.774 369.888 235.702 369.888C248.086 369.888 255.286 378.336 255.286 390.048V420H250.582V390.912C250.582 380.832 244.918 374.208 235.03 374.208C225.43 374.208 218.038 381.504 218.038 391.68V420H213.334ZM293.905 421.152C279.409 421.152 268.849 409.44 268.849 395.712V395.52C268.849 381.792 279.505 369.888 294.097 369.888C308.593 369.888 319.153 381.6 319.153 395.328V395.52C319.153 409.248 308.497 421.152 293.905 421.152ZM294.097 416.736C305.713 416.736 314.065 407.232 314.065 395.712V395.52C314.065 383.712 305.233 374.304 293.905 374.304C282.289 374.304 273.937 383.808 273.937 395.328V395.52C273.937 407.328 282.769 416.736 294.097 416.736ZM333.616 435.36V371.04H338.32V381.984C342.544 375.552 348.784 369.888 358.48 369.888C370.288 369.888 382.288 379.392 382.288 395.328V395.52C382.288 411.456 370.288 421.152 358.48 421.152C348.688 421.152 342.352 415.584 338.32 409.44V435.36H333.616ZM358 416.64C368.656 416.64 377.2 408.864 377.2 395.712V395.52C377.2 382.656 368.272 374.4 358 374.4C347.824 374.4 338.032 382.944 338.032 395.424V395.616C338.032 408.192 347.824 416.64 358 416.64Z" fill="#0AA6E0"></path>
+            </g>
+            <defs>
+            <clipPath id="clip0_30_8">
+            <rect width="540" height="540" fill="white"></rect>
+            </clipPath>
+            </defs>
+            </svg>
+          </div>
+          <div>
+            <div class="about-id__label" data-anim="fadeUp">DESIGN &amp; CODING</div>
+            <div class="about-id__name" data-anim="typechars"><span>O</span><span>g</span><span>a</span><span>w</span><span>a</span><span>&nbsp;</span><span>Y</span><span>o</span><span>s</span><span>h</span><span>i</span><span>o</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="about-body">デザインも開発も運用も、担当は私ひとり。だから話が早く、認識のズレも引き継ぎロスも起きず、コストも意思決定もシンプル。<br>
+Webデザイン、LP・バナー制作、コンテンツSEO、EC運営と制作から運用まで実務で重ねてきました。リリース後の運用フェーズも、GA・BIツールでのレポーティングからABテストによる検証、改善施策まで一貫して担当します。</p>
+        <div class="about-stats">
+          <div>
+            <div class="stat__num"><span data-countup>5</span><span class="stat__suffix">+</span></div>
+            <div class="stat__label">個人開発プロダクト</div>
+          </div>
+          <div>
+            <div class="stat__num"><span data-countup>100</span><span class="stat__suffix">+</span></div>
+            <div class="stat__label">LP・バナー制作</div>
+          </div>
+          <div>
+            <div class="stat__num"><span data-countup>15</span><span class="stat__suffix">y</span></div>
+            <div class="stat__label">実務経験</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="wrap">
+    <div class="section-head section-head--services">
+      <div>
+        <div class="eyebrow">02 / SERVICES</div>
+        <h2 class="h2">できること</h2>
+      </div>
+      <p class="section-head__note">3つの領域は、それぞれ単体でのご依頼を歓迎しています。「この部分だけ」でお気軽にどうぞ。</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card" data-anim="pop">
+        <div class="service-card__head"><span class="service-card__kicker">DESIGN</span><span class="service-card__num">01</span></div>
+        <h3 class="service-card__title">デザイン</h3>
+        <p class="service-card__desc">課題整理から情報設計、UI・ビジュアルまで。LP・バナーの単発制作にも対応します。</p>
+        <div class="deliverables-label">DELIVERABLES</div>
+        <ul class="deliverables"><li>Webデザイン</li><li>LP・バナーデザイン</li><li>デザインデータ（Figma 等）</li></ul>
+        <div class="service-card__spacer"></div>
+        <span class="badge-ok">単体のご依頼 OK</span>
+      </div>
+      <div class="service-card" data-anim="pop">
+        <div class="service-card__head"><span class="service-card__kicker">CODING</span><span class="service-card__num">02</span></div>
+        <h3 class="service-card__title">コーディング / 開発</h3>
+        <p class="service-card__desc">デザインデータからの実装、Web アプリ開発まで。デザイン支給での開発のみも承ります。</p>
+        <div class="deliverables-label">DELIVERABLES</div>
+        <ul class="deliverables"><li>LP・サイトコーディング</li><li>Web アプリ開発</li></ul>
+        <div class="service-card__spacer"></div>
+        <span class="badge-ok">単体のご依頼 OK</span>
+      </div>
+      <div class="service-card" data-anim="pop">
+        <div class="service-card__head"><span class="service-card__kicker">OPERATION</span><span class="service-card__num">03</span></div>
+        <h3 class="service-card__title">運用・保守</h3>
+        <p class="service-card__desc">公開後の改善運用、データ分析、マーケティング支援。既存サイトの保守だけでも対応します。</p>
+        <div class="deliverables-label">DELIVERABLES</div>
+        <ul class="deliverables"><li>アクセス解析・レポート（GA4 / Tableau）</li><li>改善・A/B テスト運用</li><li>EC運用・売上グロース</li></ul>
+        <div class="service-card__spacer"></div>
+        <span class="badge-ok">単体のご依頼 OK</span>
+      </div>
+    </div>
+
+    <div class="strip">
+      <div>
+        <div class="strip__flow">DESIGN <span>→</span> CODING <span>→</span> OPERATION</div>
+        <p class="strip__title">ワンストップでもお任せください。<br><span>設計から実装、運用までお引き受け可能です。</span></p>
+      </div>
+      <a href="#contact" class="btn btn--light">通しで相談する <span>→</span></a>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="section-products">
+    <svg class="wave wave--top" viewBox="0 0 1440 100" preserveAspectRatio="none" data-wave="top"><path d="M0,34 L1440,66 L1440,100 L0,100 Z" fill="#f4f4f7"></path></svg>
+    <svg class="wave wave--bottom" viewBox="0 0 1440 100" preserveAspectRatio="none" data-wave="bottom"><path d="M0,66 L1440,34 L1440,0 L0,0 Z" fill="#f4f4f7"></path></svg>
+    <div class="wrap">
+      <div class="section-head section-head--products">
+        <div>
+          <div class="eyebrow">03 / PRODUCTS</div>
+          <h2 class="h2">個人開発プロダクト</h2>
+        </div>
+        <p class="section-head__note section-head__note--narrow">企画から開発・運用まで、個人で手がけている3つのプロダクトです。</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card" data-anim="pop">
+          <div class="product-card__media product-card__media--pstay"><img class="product-card__img" src="assets/p-stay-card.png" alt="P-Stay 車中泊情報サイト"></div>
+          <div class="product-card__body">
+            <div class="product-card__num">01</div>
+            <h3 class="product-card__title">P-Stay</h3>
+            <p class="product-card__desc">クルマ旅に役立つ車中泊情報サイト。現在地やAIチャットから、近くの車中泊スポットを探せます。</p>
+            <div class="chips"><span class="chip">Web</span><span class="chip">位置情報</span><span class="chip">AI</span></div>
+            <a href="https://p-stay.webws.biz/" target="_blank" rel="noopener" class="more-link">詳しく見る →</a>
+          </div>
+        </div>
+        <div class="product-card" data-anim="pop">
+          <div class="product-card__media product-card__media--uigift"><img class="product-card__img" src="assets/uigift-card.png" alt="uiGift AIギフト選び"></div>
+          <div class="product-card__body">
+            <div class="product-card__num">02</div>
+            <h3 class="product-card__title">uiGift</h3>
+            <p class="product-card__desc">AIと話しながら選ぶ、新しいギフト体験。相手やシーンを伝えると、最適な贈り物を提案します。</p>
+            <div class="chips"><span class="chip">Web</span><span class="chip">AI</span><span class="chip">EC</span></div>
+            <a href="https://uigift.webws.biz/" target="_blank" rel="noopener" class="more-link">詳しく見る →</a>
+          </div>
+        </div>
+        <div class="product-card" data-anim="pop">
+          <div class="product-card__media product-card__media--recomi"><img class="product-card__img product-card__img--top" src="assets/recomi-card.png" alt="recomi AIレコメンド"></div>
+          <div class="product-card__body">
+            <div class="product-card__num">03</div>
+            <h3 class="product-card__title">recomi</h3>
+            <p class="product-card__desc">AIがあなたにぴったりの商品を提案。チャットで相談すると、用途に合わせたおすすめをすぐに見つけられます。</p>
+            <div class="chips"><span class="chip">Web</span><span class="chip">AI</span><span class="chip">EC</span></div>
+            <a href="https://recomi.webws.biz/" target="_blank" rel="noopener" class="more-link">詳しく見る →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS (password gated) -->
+  <section id="works" class="wrap">
+    <div class="section-head section-head--works">
+      <div>
+        <div class="eyebrow">04 / WORKS</div>
+        <h2 class="h2">LP・バナー制作実績</h2>
+      </div>
+      <p class="section-head__note">クライアントワークのため、実績はパスワードで保護しています。ご覧になりたい方はお問い合わせください。</p>
+    </div>
+
+    <div class="works-stage">
+      <div id="works-content" class="works-content">
+
+        <div class="divider-row divider-row--lp">
+          <span class="divider-label">LP / LANDING PAGE</span>
+          <span class="divider-line"></span>
+          <span class="divider-note">hover で全体をスクロール</span>
+        </div>
+
+        <div class="lp-grid">
+          <div class="lp-item">
+            <div class="browser">
+              <div class="browser__bar"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span><span class="browser__url">newyorker-pinkribbon.lp</span></div>
+              <div class="browser__shot browser__shot--newyorker"></div>
+            </div>
+            <div class="lp-item__meta">
+              <h4 class="lp-item__title">NEWYORKER ／ ピンクリボン チャリティLP</h4>
+              <p class="lp-item__desc">季節限定コラボLP・商品紹介から寄付ストーリーまで構成</p>
+              <div class="mini-chips"><span class="mini-chip">LP</span><span class="mini-chip">ブランド</span><span class="mini-chip">CSR</span></div>
+            </div>
+          </div>
+          <div class="lp-item">
+            <div class="browser">
+              <div class="browser__bar"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span><span class="browser__url">business-d.lp</span></div>
+              <div class="browser__shot browser__shot--bizd"></div>
+            </div>
+            <div class="lp-item__meta">
+              <h4 class="lp-item__title">ビジネスd 経費精算 ／ アップグレード</h4>
+              <p class="lp-item__desc">移行訴求LP・比較表とお申込み手順を設計</p>
+              <div class="mini-chips"><span class="mini-chip">LP</span><span class="mini-chip">B2B</span><span class="mini-chip">比較表</span></div>
+            </div>
+          </div>
+          <div class="lp-item">
+            <div class="browser">
+              <div class="browser__bar"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span><span class="browser__url">smartgo-staple.lp</span></div>
+              <div class="browser__shot browser__shot--smartgo"></div>
+            </div>
+            <div class="lp-item__meta">
+              <h4 class="lp-item__title">SmartGo® Staple ／ 経費精算DX</h4>
+              <p class="lp-item__desc">サービス紹介LP・課題訴求から導入事例まで構成</p>
+              <div class="mini-chips"><span class="mini-chip">LP</span><span class="mini-chip">B2B</span><span class="mini-chip">SaaS</span></div>
+            </div>
+          </div>
+          <div class="lp-item">
+            <div class="browser">
+              <div class="browser__bar"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span><span class="browser__url">review-morimori.lp</span></div>
+              <div class="browser__shot browser__shot--moretrees"></div>
+            </div>
+            <div class="lp-item__meta">
+              <h4 class="lp-item__title">レビュー投稿で森づくり ／ キャンペーンLP</h4>
+              <p class="lp-item__desc">社会貢献ストーリーを縦の流れで魅せる構成</p>
+              <div class="mini-chips"><span class="mini-chip">LP</span><span class="mini-chip">キャンペーン</span><span class="mini-chip">CSR</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider-row divider-row--banner">
+          <span class="divider-label divider-label--strong">BANNER 制作実績</span>
+          <span class="divider-line"></span>
+          <span class="divider-note">36 works – スクロールで一覧</span>
+        </div>
+        <div class="banner-scroll">
+          <div class="divider-row divider-row--ec">
+            <span class="divider-label">BANNER / EC・キャンペーン</span>
+            <span class="divider-line"></span>
+            <span class="divider-note">25 works</span>
+          </div>
+          <div class="banner-grid">
+            <img class="banner" src="assets/banners/b01.png" alt="banner 01" loading="lazy">
+            <img class="banner" src="assets/banners/b02.png" alt="banner 02" loading="lazy">
+            <img class="banner" src="assets/banners/b03.png" alt="banner 03" loading="lazy">
+            <img class="banner" src="assets/banners/b04.png" alt="banner 04" loading="lazy">
+            <img class="banner" src="assets/banners/b05.png" alt="banner 05" loading="lazy">
+            <img class="banner" src="assets/banners/b06.png" alt="banner 06" loading="lazy">
+            <img class="banner" src="assets/banners/b07.png" alt="banner 07" loading="lazy">
+            <img class="banner" src="assets/banners/b08.png" alt="banner 08" loading="lazy">
+            <img class="banner" src="assets/banners/b10.png" alt="banner 10" loading="lazy">
+            <img class="banner" src="assets/banners/b11.png" alt="banner 11" loading="lazy">
+            <img class="banner" src="assets/banners/b12.png" alt="banner 12" loading="lazy">
+            <img class="banner" src="assets/banners/b13.png" alt="banner 13" loading="lazy">
+            <img class="banner" src="assets/banners/b16.png" alt="banner 16" loading="lazy">
+            <img class="banner" src="assets/banners/b17.png" alt="banner 17" loading="lazy">
+            <img class="banner" src="assets/banners/b18.png" alt="banner 18" loading="lazy">
+            <img class="banner" src="assets/banners/b19.png" alt="banner 19" loading="lazy">
+            <img class="banner" src="assets/banners/b20.png" alt="banner 20" loading="lazy">
+            <img class="banner" src="assets/banners/b21.png" alt="banner 21" loading="lazy">
+            <img class="banner" src="assets/banners/b22.png" alt="banner 22" loading="lazy">
+            <img class="banner" src="assets/banners/b31.png" alt="banner 31" loading="lazy">
+            <img class="banner" src="assets/banners/b32.png" alt="banner 32" loading="lazy">
+            <img class="banner" src="assets/banners/b34.png" alt="banner 34" loading="lazy">
+            <img class="banner" src="assets/banners/b35.png" alt="banner 35" loading="lazy">
+            <img class="banner" src="assets/banners/b36.png" alt="banner 36" loading="lazy">
+            <img class="banner" src="assets/banners/b37.png" alt="banner 37" loading="lazy">
+          </div>
+
+          <div class="divider-row divider-row--btob">
+            <span class="divider-label">BANNER / BtoB・サービス</span>
+            <span class="divider-line"></span>
+            <span class="divider-note">11 works</span>
+          </div>
+          <div class="banner-grid banner-grid--3">
+            <img class="banner" src="assets/banners/b09.png" alt="banner 09" loading="lazy">
+            <img class="banner" src="assets/banners/b14.png" alt="banner 14" loading="lazy">
+            <img class="banner" src="assets/banners/b15.png" alt="banner 15" loading="lazy">
+            <img class="banner" src="assets/banners/b24.png" alt="banner 24" loading="lazy">
+            <img class="banner" src="assets/banners/b25.png" alt="banner 25" loading="lazy">
+            <img class="banner" src="assets/banners/b26.png" alt="banner 26" loading="lazy">
+            <img class="banner" src="assets/banners/b27.png" alt="banner 27" loading="lazy">
+            <img class="banner" src="assets/banners/b28.png" alt="banner 28" loading="lazy">
+            <img class="banner" src="assets/banners/b29.png" alt="banner 29" loading="lazy">
+            <img class="banner" src="assets/banners/b30.png" alt="banner 30" loading="lazy">
+            <img class="banner" src="assets/banners/b33.png" alt="banner 33" loading="lazy">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- lock overlay -->
+      <div id="lock-overlay">
+        <div class="lock">
+          <div class="lock__panel">
+            <div class="lock__icon"><svg width="22" height="24" viewBox="0 0 22 24" fill="none" stroke="#44ccff" stroke-width="1.7"><rect x="3" y="10" width="16" height="12" rx="2.5"></rect><path d="M6.5 10 V6.5 a4.5 4.5 0 0 1 9 0 V10"></path><circle cx="11" cy="15.5" r="1.6" fill="#44ccff" stroke="none"></circle></svg></div>
+            <h3 class="lock__title">実績はパスワード保護中</h3>
+            <p class="lock__desc">閲覧用パスワードを入力してください。</p>
+            <div class="lock__row">
+              <input id="pw-input" class="lock__input" type="password" placeholder="PASSWORD">
+              <button id="pw-btn" class="lock__btn">解除</button>
+            </div>
+            <div id="pw-error" style="display:none;"><p class="lock__error-text">パスワードが違います</p></div>
+            <p class="lock__hint">demo password: portfolio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section-skills">
+    <svg class="wave wave--top" viewBox="0 0 1440 100" preserveAspectRatio="none" data-wave="top"><path d="M0,34 L1440,66 L1440,100 L0,100 Z" fill="#0b0b12"></path></svg>
+    <svg class="wave wave--bottom" viewBox="0 0 1440 100" preserveAspectRatio="none" data-wave="bottom"><path d="M0,66 L1440,34 L1440,0 L0,0 Z" fill="#0b0b12"></path></svg>
+    <div class="wrap">
+      <div class="eyebrow">05 / SKILLS</div>
+      <h2 class="skills-title">デザインから運営まで、一気通貫。</h2>
+      <p class="skills-intro">デザインも開発も運用も、ひとりに任せられるから、引き継ぎのロスなく、構想から実現までスムーズに。もちろん、必要なフェーズだけのご依頼も歓迎です。</p>
+      <div class="skills-grid">
+        <div class="skill-col">
+          <div class="skill-col__head"><h3 class="skill-col__title">デザイン<span>DESIGN</span></h3><span class="skill-col__num">01</span></div>
+          <p class="skill-col__desc">課題を整理し、体験を設計する。</p>
+          <div class="skill-chips"><span class="skill-chip">Figma</span><span class="skill-chip">Photoshop</span><span class="skill-chip">Illustrator</span></div>
+        </div>
+        <div class="skill-col skill-col--arrow">
+          <span class="skill-col__arrow">→</span>
+          <div class="skill-col__head"><h3 class="skill-col__title">開発<span>DEVELOP</span></h3><span class="skill-col__num">02</span></div>
+          <p class="skill-col__desc">設計を、動くプロダクトに実装する。</p>
+          <div class="skill-chips"><span class="skill-chip">HTML / CSS</span><span class="skill-chip">JavaScript</span><span class="skill-chip">Next.js</span><span class="skill-chip">PHP</span><span class="skill-chip">Python</span></div>
+        </div>
+        <div class="skill-col skill-col--arrow">
+          <span class="skill-col__arrow">→</span>
+          <div class="skill-col__head"><h3 class="skill-col__title">運営<span>OPERATE</span></h3><span class="skill-col__num">03</span></div>
+          <p class="skill-col__desc">数字を見て、改善し、伸ばし続ける。</p>
+          <div class="skill-chips"><span class="skill-chip">アクセス解析・改善（GA4）</span><span class="skill-chip">データ可視化（BI）</span><span class="skill-chip">EC運用・グロース</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="wrap wrap--contact">
+    <div class="eyebrow">06 / CONTACT</div>
+    <h2 class="contact-title">つくって、動かして、育てる。<br>ぜんぶ、ここで。</h2>
+    <p class="contact-desc">ご相談・お見積もりは無料です。お気軽にご連絡ください。</p>
+    <div class="contact-row">
+      <a href="mailto:ogawa@webws.biz" class="btn btn--mail">ogawa@webws.biz <span>→</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer__brand"><span class="footer__dot"></span>WebWorkShop</span>
+    <span>© 2026 WebWorkShop — Designed &amp; built by Ogawa Yoshio</span>
+  </footer>
+
+<script src="app.js"></script>
+</body>
+</html>
