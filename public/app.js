@@ -1,7 +1,7 @@
 /* WebWorkShop Portfolio — standalone runtime
    Reimplements the behaviours the claude.ai/design support.js provided:
    loader, three.js floating spheres, scroll waves, scroll-in animations,
-   count-up numbers, the password gate, and style-hover / style-focus. */
+   count-up numbers, the server-side works gate, and style-hover / style-focus. */
 (function () {
   'use strict';
 
@@ -126,28 +126,83 @@
     nums.forEach(function (el) { numIO.observe(el); });
   }
 
-  /* ---------- password gate ---------- */
-  var PASSWORD = 'portfolio';
+  /* ---------- works gate (server side) ----------
+     The page never knows the code or the works themselves: it posts the entered
+     code to /api/works and, on success, pulls the markup from /works/content. */
+  var WORKS_AUTH_URL = '/api/works';
+  var WORKS_CONTENT_URL = '/works/content';
+  var HINT_COOKIE = 'works_hint=1';
+
   function initGate() {
     var input = document.getElementById('pw-input');
     var btn = document.getElementById('pw-btn');
     var overlay = document.getElementById('lock-overlay');
     var content = document.getElementById('works-content');
-    var error = document.getElementById('pw-error');
-    if (!input || !btn) return;
-    function tryUnlock() {
-      var v = (input.value || '').trim().toLowerCase();
-      if (v === PASSWORD) {
-        if (content) content.classList.add('is-unlocked');
-        if (overlay) overlay.style.display = 'none';
-        if (error) error.style.display = 'none';
-      } else {
-        if (error) error.style.display = 'block';
-      }
+    var row = document.querySelector('.lock__row');
+    if (!input || !btn || !content) return;
+
+    var errorEl = null;
+    var busy = false;
+
+    function clearError() {
+      if (!errorEl) return;
+      if (errorEl.parentNode) errorEl.parentNode.removeChild(errorEl);
+      errorEl = null;
     }
+    function showError(msg) {
+      clearError();
+      if (!row || !row.parentNode) return;
+      errorEl = document.createElement('p');
+      errorEl.className = 'lock__error-text';
+      errorEl.textContent = msg;
+      row.parentNode.insertBefore(errorEl, row.nextSibling);
+    }
+
+    function reveal(html) {
+      content.innerHTML = html;
+      content.removeAttribute('aria-hidden');
+      content.classList.add('is-unlocked');
+      if (overlay) overlay.style.display = 'none';
+      clearError();
+    }
+
+    function loadContent() {
+      return fetch(WORKS_CONTENT_URL, { credentials: 'same-origin', cache: 'no-store' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('locked');
+          return res.text();
+        });
+    }
+
+    function tryUnlock() {
+      if (busy) return;
+      var v = (input.value || '').trim();
+      if (!v) { showError('閲覧コードを入力してください'); return; }
+      busy = true;
+      fetch(WORKS_AUTH_URL, {
+        method: 'POST',
+        credentials: 'same-origin',
+        cache: 'no-store',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: v })
+      })
+        .then(function (res) {
+          if (res.status !== 200) throw new Error('denied');
+          return loadContent();
+        })
+        .then(reveal)
+        .catch(function () { showError('パスワードが違います'); })
+        .then(function () { busy = false; });
+    }
+
     btn.addEventListener('click', tryUnlock);
     input.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
-    input.addEventListener('input', function () { if (error) error.style.display = 'none'; });
+    input.addEventListener('input', clearError);
+
+    // Already unlocked in a previous visit: restore without asking again.
+    if (document.cookie && document.cookie.indexOf(HINT_COOKIE) !== -1) {
+      loadContent().then(reveal).catch(function () { /* cookie expired — keep the lock */ });
+    }
   }
 
   /* ---------- three.js floating wireframe spheres ---------- */
