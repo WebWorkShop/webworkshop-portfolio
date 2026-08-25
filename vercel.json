@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": "public",
+  "functions": {
+    "api/works.js": { "memory": 128, "maxDuration": 10 },
+    "api/works-content.js": {
+      "memory": 256,
+      "maxDuration": 10,
+      "includeFiles": "works-private/content.html"
+    },
+    "api/works-asset.js": {
+      "memory": 256,
+      "maxDuration": 10,
+      "includeFiles": "works-private/assets/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/works/content", "destination": "/api/works-content" },
+    { "source": "/works/assets/:file", "destination": "/api/works-asset?f=:file" }
+  ]
+}
