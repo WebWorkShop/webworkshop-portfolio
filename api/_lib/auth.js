@@ -30,7 +30,7 @@ function parseCookies(header) {
 
 /** True only when the request carries the works cookie matching WORKS_KEY. */
 function isUnlocked(req) {
-  const key = process.env.WORKS_KEY;
+  const key = (process.env.WORKS_KEY || '').trim();
   if (!key) return false;
   const cookies = parseCookies(req.headers && req.headers.cookie);
   return safeEqual(cookies.works, key);

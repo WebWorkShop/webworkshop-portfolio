@@ -39,10 +39,15 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const expected = process.env.WORKS_PASSWORD;
-  const key = process.env.WORKS_KEY;
+  // Trim the configured values: a viewing code never meaningfully starts or ends
+  // with whitespace, and a stray newline from pasting one into the dashboard would
+  // otherwise reject every correct entry.
+  const expected = (process.env.WORKS_PASSWORD || '').trim();
+  const key = (process.env.WORKS_KEY || '').trim();
   if (!expected || !key) {
-    res.status(500).json({ ok: false });
+    // Distinct from 401 so a missing environment variable is not mistaken for a
+    // wrong code. Says nothing about the code itself.
+    res.status(503).json({ ok: false, error: 'not_configured' });
     return;
   }
 

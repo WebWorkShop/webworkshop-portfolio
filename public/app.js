@@ -187,11 +187,22 @@
         body: JSON.stringify({ password: v })
       })
         .then(function (res) {
-          if (res.status !== 200) throw new Error('denied');
-          return loadContent();
+          if (res.status === 200) return loadContent();
+          // Only a 401 means the code itself was wrong. Anything else is a
+          // problem on our side, and saying otherwise would send the visitor
+          // hunting for a typo that isn't there.
+          if (res.status !== 401) {
+            console.error('works gate: unexpected status ' + res.status);
+            throw new Error('unavailable');
+          }
+          throw new Error('denied');
         })
         .then(reveal)
-        .catch(function () { showError('パスワードが違います'); })
+        .catch(function (err) {
+          showError(err && err.message === 'denied'
+            ? 'パスワードが違います'
+            : '現在確認できません。時間をおいて再度お試しください。');
+        })
         .then(function () { busy = false; });
     }
 
